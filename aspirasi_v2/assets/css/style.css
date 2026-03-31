@@ -1,0 +1,535 @@
+/* ===========================
+   RESET & BASE
+=========================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+    display: flex;
+    flex-direction: column;
+    background: var(--bg);
+    color: var(--teks);
+    min-height: 100vh;
+    line-height: 1.6;
+    font-size: 15px;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* ===========================
+   VARIABEL WARNA
+=========================== */
+:root {
+    --bg:         #212120; 
+    --bg-card:    #2b2b29;  
+    --border:     #3a3a37;
+    --border-mid: #4a4a46;
+    --teks:       #efefec;   
+    --abu:        #9e9c93;
+    --abu-muda:   #6b6963;
+    --hijau:      #4ade80;
+    --hijau-muda: #1a3327;
+    --kuning:     #fbbf24;
+    --kuning-muda:#2d2410;
+    --merah:      #f30e0e;
+    --merah-muda: #2d1515;
+    --biru:       #60a5fa;
+    --biru-muda:  #112040;
+}
+/* ===========================
+   HEADER ADMIN
+=========================== */
+header {
+    background: #1a1a19;
+    border-bottom: 1px solid var(--border);
+    padding: 0 28px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 52px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+header .logo {
+    font-size: 1.3rem;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 200;
+    color: var(--teks);
+    letter-spacing: -0.01em;
+}
+
+header nav {
+    display: flex;
+    gap: 2px;
+}
+
+header nav a {
+    color: var(--abu);
+    padding: 5px 12px;
+    border-radius: 6px;
+    font-size: 0.84rem;
+    transition: background 0.15s, color 0.15s;
+}
+
+header nav a:hover,
+header nav a.aktif {
+    background: rgba(255,255,255,0.08);
+    color: var(--teks);
+}
+
+header nav a.logout {
+    color: var(--merah);
+}
+
+header nav a.logout:hover {
+    background: var(--merah-muda);
+}
+
+/* ===========================
+   HEADER SISWA
+=========================== */
+.header-siswa {
+    background: #1a1a19;
+    border-bottom: 1px solid var(--border);
+    padding: 20px 0;
+}
+
+.header-siswa .inner {
+    width: 90%;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.header-siswa .judul {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1.50rem;
+    font-weight: 100;
+    color: var(--teks);
+    letter-spacing: -0.01em;
+}
+
+.header-siswa .sub {
+    color: var(--abu);
+    font-size: 0.82rem;
+    margin-top: 2px;
+}
+
+/* ===========================
+   LAYOUT
+=========================== */
+.section {
+    padding: 28px 0;
+}
+
+.wrap {
+    flex: 1;
+    width: 90%;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.grid-2 {
+    display: grid;
+    grid-template-columns: 360px 1fr;
+    gap: 20px;
+    align-items: start;
+}
+
+/* ===========================
+   BOX / CARD
+=========================== */
+.box {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 14px;
+}
+
+.box-judul {
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--teks);
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border);
+}
+
+/* ===========================
+   FORM INPUT
+=========================== */
+label {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 500;
+    margin-bottom: 5px;
+    color: var(--abu);
+}
+
+input[type=text],
+input[type=number],
+input[type=password],
+input[type=date],
+select,
+textarea {
+    width: 100%;
+    padding: 8px 11px;
+    border: 1px solid var(--border-mid);
+    border-radius: 7px;
+    font-family: inherit;
+    font-size: 0.86rem;
+    color: #efefec !important;
+    background: #2b2b29 !important;
+    margin-bottom: 12px;
+    transition: border 0.15s, box-shadow 0.15s;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:focus {
+    -webkit-text-fill-color: var(--teks);
+    -webkit-box-shadow: 0 0 0px 1000px var(--bg) inset;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: var(--abu);
+    box-shadow: 0 0 0 3px rgba(26,26,25,0.07);
+    background: white;
+}
+
+select {
+    color-scheme: dark;
+}
+
+select option {
+    background: #2b2b29;
+    color: #efefec;
+}
+
+textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+/* ===========================
+   TOMBOL
+=========================== */
+.btn {
+    display: inline-block;
+    padding: 7px 16px;
+    background: #e23500;
+    color: white;
+    border: none;
+    border-radius: 7px;
+    cursor: pointer;    
+    font-family: inherit;
+    font-size: 0.84rem;
+    font-weight: 500;
+    transition: opacity 0.15s;
+}
+
+.btn:hover {
+    opacity: 0.82;
+    color: white;
+}
+
+.btn-block {
+    width: 100%;
+    text-align: center;
+    display: block;
+    padding: 9px;
+}
+
+.btn-merah { background: var(--merah); }
+.btn-ungu  { background: #7f10ff; }
+.btn-hijau { background: var(--hijau); }
+
+.btn-outline {
+    background: none;
+    border: 1px solid var(--border-mid);
+    color: var(--abu);
+}
+
+.btn-outline:hover {
+    background: var(--bg);
+    color: var(--teks);
+    opacity: 1;
+}
+
+.btn-kecil {
+    padding: 3px 11px;
+    font-size: 0.78rem;
+    border-radius: 5px;
+}
+
+/* ===========================
+   TABEL
+=========================== */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+thead tr {
+    border-bottom: 1px solid var(--border);
+}
+
+thead th {
+    padding: 9px 13px;
+    font-size: 0.74rem;
+    text-align: left;
+    font-weight: 600;
+    color: var(--abu);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    background: var(--bg);
+}
+
+tbody tr {
+    border-bottom: 1px solid var(--border);
+    transition: background 0.1s;
+}
+
+tbody tr:last-child { border-bottom: none; }
+
+tbody tr:hover { background: var(--bg); }
+
+tbody td {
+    padding: 9px 13px;
+    font-size: 0.84rem;
+    vertical-align: middle;
+}
+
+/* ===========================
+   BADGE STATUS
+=========================== */
+.badge {
+    display: inline-block;
+    padding: 2px 9px;
+    border-radius: 4px;
+    font-size: 0.73rem;
+    font-weight: 600;
+}
+
+.badge-menunggu { background: var(--kuning-muda); color: var(--kuning); }
+.badge-proses   { background: var(--biru-muda);   color: var(--biru); }
+.badge-selesai  { background: var(--hijau-muda);  color: var(--hijau); }
+
+/* ===========================
+   KARTU PENGADUAN (siswa)
+=========================== */
+.kartu {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 9px;
+    border-left: 3px solid var(--border-mid);
+    padding: 14px 16px;
+    margin-bottom: 10px;
+}
+
+.kartu .k-atas {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 4px;
+}
+
+.kartu .k-kat  { font-weight: 600; font-size: 0.88rem; color: var(--teks); }
+.kartu .k-info { font-size: 0.76rem; color: var(--abu-muda); margin-bottom: 5px; }
+.kartu .k-ket  { font-size: 0.84rem; color: var(--abu); margin-bottom: 6px; }
+
+.kartu .k-feedback {
+    background: var(--bg);
+    border-left: 2px solid var(--border-mid);
+    border-radius: 0 6px 6px 0;
+    padding: 8px 12px;
+    font-size: 0.8rem;
+    margin-top: 8px;
+    color: var(--abu);
+}
+
+/* ===========================
+   STATISTIK CARD
+=========================== */
+.stat-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 10px;
+    margin-bottom: 18px;
+}
+
+.stat-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 9px;
+    padding: 14px 16px;
+}
+
+.stat-card .s-label {
+    font-size: 0.72rem;
+    color: var(--abu-muda);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 600;
+}
+
+.stat-card .s-val {
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin-top: 2px;
+    letter-spacing: -0.03em;
+    color: var(--teks);
+}
+
+/* ===========================
+   FILTER BAR
+=========================== */
+.filter-bar {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 9px;
+    padding: 14px 16px;
+    margin-bottom: 14px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    align-items: flex-end;
+}
+
+.filter-item { flex: 1; min-width: 120px; }
+.filter-item label { margin-bottom: 4px; }
+.filter-item input,
+.filter-item select { margin-bottom: 0; }
+
+/* ===========================
+   ALERT
+=========================== */
+.alert {
+    padding: 10px 14px;
+    margin-bottom: 14px;
+    font-size: 0.84rem;
+    border-radius: 7px;
+    border: 1px solid;
+}
+
+.alert-ok  { background: var(--hijau-muda); color: var(--hijau); border-color: #b7d9c8; }
+.alert-err { background: var(--merah-muda); color: var(--merah); border-color: #f0c4be; }
+
+/* ===========================
+   LOGIN ADMIN
+=========================== */
+.login-wrap {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--bg);
+}
+
+.login-box {
+    background: var(--bg-card);
+    width: 340px;
+    padding: 36px 32px;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+}
+
+.login-box h2 {
+    text-align: center;
+    color: var(--teks);
+    margin-bottom: 4px;
+    font-size: 1.15rem;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+}
+
+.login-box .sub {
+    text-align: center;
+    color: var(--abu);
+    font-size: 0.82rem;
+    margin-bottom: 24px;
+}
+
+/* ===========================
+   FEEDBACK LAYOUT
+=========================== */
+.feedback-grid {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    gap: 16px;
+    align-items: start;
+}
+
+.feedback-list {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 9px;
+    overflow: hidden;
+}
+
+.fb-header {
+    padding: 10px 14px;
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+    font-size: 0.74rem;
+    font-weight: 600;
+    color: var(--abu);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.fb-item {
+    display: block;
+    padding: 11px 14px;
+    border-bottom: 1px solid var(--border);
+    border-left: 2px solid transparent;
+    transition: background 0.12s;
+    color: var(--teks);
+}
+
+.fb-item:last-child { border-bottom: none; }
+
+.fb-item:hover,
+.fb-item.aktif {
+    background: var(--bg);
+    border-left-color: var(--abu);
+}
+
+.fb-item .fb-nis { font-weight: 600; font-size: 0.84rem; }
+.fb-item .fb-sub { font-size: 0.74rem; color: var(--abu-muda); margin-top: 2px; }
+
+/* ===========================
+   FOOTER
+=========================== */
+footer {
+    text-align: center;
+    padding: 14px;
+    color: var(--abu-muda);
+    font-size: 0.78rem;
+    border-top: 1px solid var(--border);
+    background: var(--bg-card);
+    margin-top: 10px;
+}
+
+/* ===========================
+   RESPONSIVE
+=========================== */
+@media (max-width: 768px) {
+    .wrap { width: 96%; }
+    .grid-2 { grid-template-columns: 1fr; }
+    .feedback-grid { grid-template-columns: 1fr; }
+    header { padding: 0 14px; }
+    header nav a { padding: 5px 9px; font-size: 0.78rem; }
+}
+
